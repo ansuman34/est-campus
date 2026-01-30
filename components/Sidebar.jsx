@@ -38,8 +38,8 @@ const Sidebar = ({ isOpen }) => {
       label: "Academics",
       submenus: [
         { label: "Courses", icon: <FaListUl />, path: null },
-        { label: "Results", icon: <FaCheckCircle />, path: "/result" },
-        { label: "Attendance", icon: <FaChartLine />, path: "/attendance" },
+        { label: "Results", icon: <FaCheckCircle />, path: "/dashboard/result" },
+        { label: "Attendance", icon: <FaChartLine />, path: "/dashboard/attendance" },
       ],
     },
     {

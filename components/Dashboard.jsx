@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, Outlet, useMatch } from "react-router-dom";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { FaArrowCircleRight } from "react-icons/fa";
@@ -114,10 +114,10 @@ const ExamScheduleCard = () => (
   </Card>
 );
 
-const ResultCard = () => {
-  const openResultWindow = () => {
-    window.open('/result', 'resultWindow', 'width=800,height=600,scrollbars=yes');
-  };
+const ResultCard = ({ studentData }) => {
+  // const openResultWindow = () => {
+  //   window.open('/result', 'resultWindow', 'width=800,height=600,scrollbars=yes');
+  // };
 
   return (
     <Card title="Result" color="card-red">
@@ -128,10 +128,10 @@ const ResultCard = () => {
           <br />
         </div>
         <div className="card-bottom-bar card-footer-red">
-          <a href="/result" onClick={(e) => { e.preventDefault(); openResultWindow(); }}>
+          <Link to={`/dashboard/result?regdNo=${studentData.regdNo}`}>
             More Info
             <FaArrowCircleRight />
-          </a>
+          </Link>
         </div>
       </div>
     </Card>
@@ -369,6 +369,7 @@ const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [currentStudent, setCurrentStudent] = useState(null);
   const location = useLocation();
+  const isDashboardMainRoute = location.pathname === "/dashboard";
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -408,27 +409,31 @@ const Dashboard = () => {
         <div
           className={`dashboard-content ${!sidebarOpen ? "sidebar-closed" : ""}`}
         >
-          <div className="card-grid">
-            <FacultyCard studentData={currentStudent} />
-            <AcademicsCard studentData={currentStudent} />
-            <TimeTableCard />
-            <AttendanceCard studentData={currentStudent} />
-            <ExamScheduleCard />
-            <ResultCard />
-            <LibraryCard />
-            <HostelCard />
-            <DuesCard studentData={currentStudent} />
-            <CanteenCard />
-            <OnlineQuizCard />
-            <OnlineWrittenCard />
-            <ProfileCard studentData={currentStudent} />
-            <HolidaysCard />
-            <CourseFeedbackCard />
-            <FeedbackCard />
-            <StudentSatisfactionSurveyFeedbackCard />
-            <PracticeSchoolCard />
-            <OfficialMailCard studentData={currentStudent} />
-          </div>
+          {isDashboardMainRoute ? (
+            <div className="card-grid">
+              <FacultyCard studentData={currentStudent} />
+              <AcademicsCard studentData={currentStudent} />
+              <TimeTableCard />
+              <AttendanceCard studentData={currentStudent} />
+              <ExamScheduleCard />
+              <ResultCard studentData={currentStudent} />
+              <LibraryCard />
+              <HostelCard />
+              <DuesCard studentData={currentStudent} />
+              <CanteenCard />
+              <OnlineQuizCard />
+              <OnlineWrittenCard />
+              <ProfileCard studentData={currentStudent} />
+              <HolidaysCard />
+              <CourseFeedbackCard />
+              <FeedbackCard />
+              <StudentSatisfactionSurveyFeedbackCard />
+              <PracticeSchoolCard />
+              <OfficialMailCard studentData={currentStudent} />
+            </div>
+          ) : (
+            <Outlet />
+          )}
         </div>
       </div>
     </div>
