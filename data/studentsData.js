@@ -13,6 +13,9 @@ export const students = [
             semester: 2,
             branch: "CSE"
         },
+        timetable: {
+            section: "CSE-C"
+        },
         attendance: {
             totalSubjects: 8,
             lowAttendance: 1,
@@ -91,6 +94,9 @@ export const students = [
             program: "MCA",
             semester: 2,
             branch: "Computer Applications"
+        },
+        timetable: {
+            section: "MCA-A"
         },
         attendance: {
             totalSubjects: 6,

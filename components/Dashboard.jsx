@@ -59,11 +59,11 @@ const AcademicsCard = ({ studentData }) => (
   </Card>
 );
 
-const TimeTableCard = () => (
+const TimeTableCard = ({ studentData }) => (
   <Card title="Time Table" color="card-orange">
     <div className="card-content">
       <div className="card-btn">
-        <button className="btn">CSE-C</button>
+        <button className="btn">{studentData.timetable.section}</button>
       </div>
       <br />
       <br />
@@ -86,7 +86,7 @@ const AttendanceCard = ({ studentData }) => (
         <div> 80% to 100% - <span style={{color: 'lightgreen'}}>{studentData.attendance.goodAttendance}</span></div>
       </div>
       <div className="card-bottom-bar card-footer-purple">
-        <Link to={`/attendance?regdNo=${studentData.regdNo}`}>
+        <Link to={`/dashboard/attendance?regdNo=${studentData.regdNo}`}>
           More Info <FaArrowCircleRight />
         </Link>
       </div>
@@ -115,9 +115,7 @@ const ExamScheduleCard = () => (
 );
 
 const ResultCard = ({ studentData }) => {
-  // const openResultWindow = () => {
-  //   window.open('/result', 'resultWindow', 'width=800,height=600,scrollbars=yes');
-  // };
+
 
   return (
     <Card title="Result" color="card-red">
@@ -413,7 +411,7 @@ const Dashboard = () => {
             <div className="card-grid">
               <FacultyCard studentData={currentStudent} />
               <AcademicsCard studentData={currentStudent} />
-              <TimeTableCard />
+              <TimeTableCard studentData={currentStudent} />
               <AttendanceCard studentData={currentStudent} />
               <ExamScheduleCard />
               <ResultCard studentData={currentStudent} />
