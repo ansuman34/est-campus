@@ -3,11 +3,13 @@ import "./Navbar.css";
 import logo from "../src/assets/SITBBS_logo.jpg";
 import akritiProfile from "../src/assets/Akriti.jpeg";
 import abhipsaProfile from "../src/assets/Abhipsa Panda.jpeg";
+import HimanshuProfile from "../dist/assets/himansu.jpeg";
 import defaultProfile from "../src/assets/animesh.jpg";
+
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaBell, FaGraduationCap, FaChevronDown, FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
 
-const Navbar = ({ onToggleSidebar, sidebarOpen, studentName, studentRegdNo }) => {
+const Navbar = ({ onToggleSidebar, studentName, studentRegdNo }) => {
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const profileRef = useRef(null);
 
@@ -17,7 +19,10 @@ const Navbar = ({ onToggleSidebar, sidebarOpen, studentName, studentRegdNo }) =>
       return akritiProfile;
     } else if (studentRegdNo === "25MMCF67") {
       return abhipsaProfile;
-    } else {
+    } else if (studentRegdNo === "25BCSH49") {
+      return HimanshuProfile; // Replace with Himanshu's profile image when available
+    }
+     else {
       return defaultProfile;
     }
   };

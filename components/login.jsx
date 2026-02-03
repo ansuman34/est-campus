@@ -27,10 +27,11 @@ const SignInPage = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     
-    // Demo credentials - registration numbers as usernames
+    
     const demoCredentials = {
       "25BCSH71": "123456789",  // Akriti Agarwal
-      "25MMCF67": "password"   // Abhipsa Panda
+      "25MMCF67": "password",   // Abhipsa Panda
+      "25BCSH49": "123456789"  // Himanshu Sekhar Maharana
     };
 
     // Check if username is a valid registration number and password matches
