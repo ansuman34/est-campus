@@ -32,7 +32,8 @@ const SignInPage = () => {
       "25BCSH71": "123456789",  // Akriti Agarwal
       "25MMCF67": "password",   // Abhipsa Panda
       "25BCSH49": "123456789",  // Himanshu Sekhar Maharana
-      "23BCSE05":"123456789"    //ZEESHAN AHMED
+      "23BCSE05":"123456789",    //ZEESHAN AHMED
+      "23MDSA02":"123456789"    //DIBYA
     };
 
     // Check if username is a valid registration number and password matches

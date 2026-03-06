@@ -3,11 +3,19 @@ import "./Navbar.css";
 import logo from "../src/assets/SITBBS_logo.jpg";
 import akritiProfile from "../src/assets/Akriti.jpeg";
 import abhipsaProfile from "../src/assets/Abhipsa Panda.jpeg";
+import divyaProfile from "../src/assets/Divya.jpeg";
 // import HimanshuProfile from "../src/assets/himansu.jpeg"; // File not in source, add to src/assets/ if needed
-import ZeeshanProfile from "../src/assets/WhatsApp Image 2026-03-06 at 4.23.12 PM.jpeg"
+import ZeeshanProfile from "../src/assets/WhatsApp Image 2026-03-06 at 4.23.12 PM.jpeg";
 
 import { RxHamburgerMenu } from "react-icons/rx";
-import { FaBell, FaGraduationCap, FaChevronDown, FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
+import {
+  FaBell,
+  FaGraduationCap,
+  FaChevronDown,
+  FaUser,
+  FaCog,
+  FaSignOutAlt,
+} from "react-icons/fa";
 
 const Navbar = ({ onToggleSidebar, studentName, studentRegdNo }) => {
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
@@ -20,11 +28,12 @@ const Navbar = ({ onToggleSidebar, studentName, studentRegdNo }) => {
     } else if (studentRegdNo === "25MMCF67") {
       return abhipsaProfile;
     } else if (studentRegdNo === "25BCSH49") {
-      return null; // Add himansu.jpeg to src/assets/ to use it
+      return null;
+    } else if (studentRegdNo === "23BCSE05") {
+      return ZeeshanProfile;
+    } else if (studentRegdNo === "23MDSA02") {
+      return divyaProfile;
     }
-      else if(studentRegdNo ==="23BCSE05") {
-        return ZeeshanProfile;
-      }
   };
 
   // Get full name for dropdown
@@ -42,8 +51,8 @@ const Navbar = ({ onToggleSidebar, studentName, studentRegdNo }) => {
   const getDisplayName = () => {
     const fullName = getFullName();
     if (!fullName) return "Student";
-    
-    const names = fullName.split(' ');
+
+    const names = fullName.split(" ");
     return names[0]; // Show only first name
   };
 
@@ -59,27 +68,24 @@ const Navbar = ({ onToggleSidebar, studentName, studentRegdNo }) => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
   const handleSignOut = () => {
-    localStorage.removeItem('userRegdNo');
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('currentUser');
-    window.location.href = '/login';
+    localStorage.removeItem("userRegdNo");
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("currentUser");
+    window.location.href = "/login";
   };
 
   return (
     <div className="navbar">
       <div className="navbar-left">
         <img src={logo} alt="Logo" className="logo" />
-        <RxHamburgerMenu 
-          className="hamburger-icon" 
-          onClick={onToggleSidebar}
-        />
+        <RxHamburgerMenu className="hamburger-icon" onClick={onToggleSidebar} />
         <h3>SiliconTech is a Unit of Silicon University</h3>
       </div>
       <div className="navbar-right">
@@ -90,15 +96,13 @@ const Navbar = ({ onToggleSidebar, studentName, studentRegdNo }) => {
         </div>
         <div className="profile-container" ref={profileRef}>
           <div className="profile" onClick={toggleProfileDropdown}>
-            <img 
-              src={getProfileImage()} 
-              alt="User" 
-              className="profile-pic" 
-            />
+            <img src={getProfileImage()} alt="User" className="profile-pic" />
             <span className="profile-name">{getDisplayName()} (Student)</span>
-            <FaChevronDown className={`dropdown-arrow ${profileDropdownOpen ? 'rotated' : ''}`} />
+            <FaChevronDown
+              className={`dropdown-arrow ${profileDropdownOpen ? "rotated" : ""}`}
+            />
           </div>
-          
+
           {profileDropdownOpen && (
             <div className="profile-dropdown">
               <div className="profile-header">
@@ -108,7 +112,9 @@ const Navbar = ({ onToggleSidebar, studentName, studentRegdNo }) => {
                   className="profile-img"
                 />
                 <h3 className="profile-fullname">{getFullName()}</h3>
-                <p className="profile-role">Student ID: {studentRegdNo || "N/A"}</p>
+                <p className="profile-role">
+                  Student ID: {studentRegdNo || "N/A"}
+                </p>
               </div>
 
               <div className="profile-options">

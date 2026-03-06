@@ -193,10 +193,10 @@ export const students = [
     feedbackStatus: "Pending",
   },
   {
-    regdNo: "25MMCF67",
-    name: "Abhipsa Panda",
+    regdNo: "23MDSA02",
+    name: "Dibya Pullak Singh",
     mobile: "8765432109",
-    email: "abhipsa.panda2025@gmail.com",
+    email: "dibya.singh2023@gmail.com",
     facultyAdvisor: {
       name: "Dr. Anjali Mohanty",
       contact: "8987654321",
@@ -304,7 +304,7 @@ export const students = [
     results: [
       {},
       {
-        semester: 1,
+        semester: 3,
         overallResult: "PASS",
         subjects: [
           {
@@ -341,13 +341,13 @@ export const students = [
       },
     ],
     officialEmail: {
-      email: "mca.25mmcf67@silicon.ac.in",
+      email: "mca.23mdsa02@silicon.ac.in",
       password: "9abhipsa67",
     },
     profile: {
-      name: "Abhipsa Panda",
+      name: "Dibya Pullak Singh",
       mobile: "8765432109",
-      email: "abhipsa.panda2025@gmail.com",
+      email: "dibya.singh2023@gmail.com",
     },
     library: {
       booksWithMe: 5,
