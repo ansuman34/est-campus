@@ -702,7 +702,7 @@ export const students = [
     results: [
       {},
       {
-        semester: 4,
+        semester: 5,
         overallResult: "PASS",
         subjects: [
           {
