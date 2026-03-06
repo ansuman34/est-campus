@@ -3,7 +3,7 @@ import "./Navbar.css";
 import logo from "../src/assets/SITBBS_logo.jpg";
 import akritiProfile from "../src/assets/Akriti.jpeg";
 import abhipsaProfile from "../src/assets/Abhipsa Panda.jpeg";
-import HimanshuProfile from "../dist/assets/himansu.jpeg";
+// import HimanshuProfile from "../src/assets/himansu.jpeg"; // File not in source, add to src/assets/ if needed
 import ZeeshanProfile from "../src/assets/WhatsApp Image 2026-03-06 at 4.23.12 PM.jpeg"
 
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -20,7 +20,7 @@ const Navbar = ({ onToggleSidebar, studentName, studentRegdNo }) => {
     } else if (studentRegdNo === "25MMCF67") {
       return abhipsaProfile;
     } else if (studentRegdNo === "25BCSH49") {
-      return HimanshuProfile;
+      return null; // Add himansu.jpeg to src/assets/ to use it
     }
       else if(studentRegdNo ==="23BCSE05") {
         return ZeeshanProfile;
